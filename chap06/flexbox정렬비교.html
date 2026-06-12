@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 정렬 비교</title>
+    <Style>
+        body {
+            font-family: sans-serif;
+            padding:  16px;
+        }
+
+        .section-title{
+            font-weight: bold;
+            margin: 20px 0px 6px;
+            color: rgb(86, 105, 72);
+        }
+        .flex-container {
+          display:flex;      /* Flexbox 활성화 */
+          background-color: rgb(247, 246, 216);
+          border: 2px solid #6c8ebf;
+          border-radius: 8px;
+          height: 80px;
+          padding: 8px;
+          gap: 8px;
+        }
+
+        .flex-item {
+          background-color: #fbfdff;
+          color: rgb(105, 105, 218);
+          border-radius: 6px;
+          padding: 8px;
+          font-size: 14px;
+          white-space: nowrap;
+        }
+
+        /* 정렬번형 */
+        .justify-center {justify-content: center;}
+        .justify-between {justify-content: space-between;}
+        .justify-evenly {justify-content: space-evenly;}
+        .align-center {align-items: center}
+
+        /* 세로 방향 컨테이너 */
+        .flex-column {
+          flex-direction: column                                                                                     ;
+          height: 160px;
+        }
+    </Style>
+  </head>
+  <body>
+    <p class="section-title">기본값 (flex-start, stretch)</p>
+    <div class="flex-container">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+
+    <p class="section-title">justify-content: center + align-items: center</p>
+    <div class="flex-container justify-center align-center">
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+    </div>
+
+    <p class="section-title">
+      justify-content: space-between + align-items: center
+    </p>
+    <div class="flex-container justify-between align-center">
+      <div class="flex-item">왼쪽</div>
+      <div class="flex-item">가운데</div>
+      <div class="flex-item">오른쪽</div>
+    </div>
+
+    <p class="section-title">flex-direction: column (세로 정렬)</p>
+    <div class="flex-container flex-column align-center">
+      <div class="flex-item">위</div>
+      <div class="flex-item">중간</div>
+      <div class="flex-item">아래</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-grow 비율 분배</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 8px;
+            background-color: f0f4ff;
+            border: 2px solid #6c8ebf;
+            padding:8px;
+            border-radius: 8px;
+        }
+
+        .item {
+            background-color: rgb(88, 167, 141);
+            color: rgb(255, 255, 255);
+            border-radius: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .item-1 {flex: 1;}
+        .item-2 {flex: 2;}
+        .item-3 {flex: 1;}
+
+    </style>
+</head>
+
+<body>
+    <div class= "container">
+        <div class = "item item-1">flex :<br> (25%)</div>
+        <div class = "item item-2">flex :<br> (50%)</div>
+        <div class = "item item-3">flex :<br> (25%)</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Flexbox 중첩</title>
+    <style>
+      /* Grid : 전체 카드 갤러리 격자 */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        background-color: rgb(219, 209, 210);
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column; /*새로로 쌓기*/
+        background-color: rgb(123, 106, 85);
+        border: 0.5px solid #e0e0e0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 140px;
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        font-size: 32px;
+      }
+
+      .card-body {
+        padding: 16px;
+        flex: 1; /*남은 공간을 채워 카드 높이를 일정하게 유지*/
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .card-title {
+        font-weight: bold;
+        font-size: 16px;
+        color: black;
+      }
+
+      .card-desc {
+        font-weight: bold;
+        font-size: 13px;
+        color: rgb(168, 156, 156);
+        flex: 1;
+      }
+
+
+      .card-btn {
+        display: block;
+        background-color: rgb(182, 205, 197);
+        color: white;
+        text-align: center;
+        padding: 8px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        margin-top: auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- gallery div start -->
+    <div class="gallery">
+      <div class="card">
+        <!--card start-->
+        <div class="card-image">image</div>
+        <div class="card-body">
+          <p class="card-title">카드 제목 A</p>
+          <p class="card-desc">짧은 설명</p>
+          <a href="#" class="card-btn">자세히 보기 </a>
+        </div>
+      </div>
+      <!--card end-->
+      <div class="card">
+        <div class="card">
+          <!--card start-->
+          <div class="card-image">image</div>
+          <div class="card-body">
+            <p class="card-title">카드 제목 B</p>
+            <p class="card-desc">짧은 설명</p>
+            <a href="#" class="card-btn">자세히 보기 </a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card">
+          <!--card start-->
+          <div class="card-image">image</div>
+          <div class="card-body">
+            <p class="card-title">카드 제목 C</p>
+            <p class="card-desc">짧은 설명</p>
+            <a href="#" class="card-btn">자세히 보기 </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- gallery div end     -->
+    </div>
+  </body>
+</html>
