@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>변수와 상수</h1>
+    <script>
+        // const : 재할당 불가
+        //중괄호가 아닌 script에서 선언됬으므로 전역변수
+        const siteName  = '나의블로그'
+        console.log(siteName)
+    
+
+        //let 은 재할당 가능
+        let score = 80;
+        console.log('초기 점수: ', score);
+        score = 95;
+        console.log('수정 점수: ', score);
+
+        //블록 스코프 확인
+        // {
+        //     const blockVar = '블록 안에서만 유효'
+        //     console.log(blockVar)
+        // }
+        // // console.log(blockVar)
+
+        //var 선언 변수의 문제점
+        if (true) {
+            var leaky = 'var는 블록을 탈출한다'
+        }
+
+        // console.log(leaky)
+
+        
+  </script>
+</body>
+</html>

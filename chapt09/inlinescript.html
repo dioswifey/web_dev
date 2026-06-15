@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 스크립트 예제</title>
+</head>
+<body>
+
+    <h1>인라인 스크립트</h1>
+    <!-- body 끝 직전에 script를 두면 요소가 모두 준비된 후 실행 -->
+    <script>
+        // 개발자모드 콘솔창에 출력됨
+        console.log("안녕하세요, Javascript");
+        //브라우저 자체를 window object임. JS에 window 객체가있기때문에
+        //브라우저를 제어하는거: window object
+        //자바스크립트에서 window object만 가져오면 됨
+        //history
+
+        //location object : URL 주소창에 있는거
+        //href: 현재 script의 이름
+        //브라우저 화면을 다루는 object: document
+        console.log("현재 URL : ", window.location.href)
+    </script>
+</body>
+</html>

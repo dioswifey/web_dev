@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var 호이스팅: 선언 전 접근해도 undefined 반환, 에러 없다
+        console.log(hoistedVar);
+        var hoistedVar = "나중에 선언";
+        console.log(hoistedVar);
+        
+        //let 호이스팅: 초기화 전 접근하면 ReferenceError 발생
+        try {
+            console.log(hoistedLet)
+        } catch(e){
+            console.log("에러 : ", e.message)
+        }
+        let hoistedLet = "안전한 선언"
+        console.log(hoistedLet)
+
+
+    </script>
+
+</body>
+</html>
