@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 조작 예제</title>
+    <style>
+        /* . 은 클래스 선택자  */
+        .highlight {background-color: #fff3cd; font-weight: bold;} 
+        .complete {text-decoration: line-through; color: #999;}
+        #status {margin-top: 12px; font-size: 0.9rem; color: #555;}
+    </style>
+</head>
+<body>
+    <h2 id = "heading">오늘의 할 일</h2>
+    <ul id = "task-list">
+        <li id = "task-1">장보기</li>
+        <li id = "task-2">운동하기</li>
+        <li id = "task-3">독서하기</li>
+    </ul>
+    <!-- button에 event를 걸어 놓아햐한다 -->
+    <button id = "btn-complete">첫 번쨰 완료 처리</button>
+    <button id = "btn-highlight">제목 강조 토글</button> //토글은 스위치처럼 두가지 기능을 갖는다
+    <p id = "status"></p>
+    <script>
+        //요소를 선택하기
+        const heading = document.querySelector('#heading');
+        const firstTask = document.querySelector('#task-1');
+        const allTasks = document.querySelectorAll("#task-list li");
+        const statusEl = document.querySelector('#status');
+
+        //p tag안에 컨턴츠로 "총 3개의 할일이 있습니다" 추가
+        // backtick으로 처리
+        statusEl.textContent = `총 ${allTasks.length}개의 할 일 이 있습니다.`
+
+        //classList로 클래스를 추가
+        document.querySelector('#btn-complete').addEventListener('click', () => {
+            //click했을때 무엇을 할지 지정을 해준다, 첫번째 할일 완료시킨다. 
+            firstTask.classList.add('complete');   //클래스를 추가하여 위의 style이 적용된다
+            firstTask.textContent = "장보기 (완료)"
+        });
+        document.querySelector("#btn-highlight").addEventListener('click', () => {
+            //click했을때 heading
+            heading.classList.toggle("highlight");
+        })
+        //모든 li 요소를 순회한다
+        allTasks.forEach((task, index) => {
+            console.log(`${index + 1}번 작업 : ${task.textContent}`)
+        });
+
+    </script>
+</body>
+</html>

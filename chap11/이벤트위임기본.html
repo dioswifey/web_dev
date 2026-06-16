@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #color-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 8px;
+        flex-direction: row;
+      }
+
+      .color-chip {
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+      }
+
+      .color-chip.selected {
+        border-color: #2c3e50;
+      }
+
+      #selected-color {
+        margin-top: 12px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>색상 선택</h3>
+
+    <ul id="color-list">
+      <li
+        class="color-chip"
+        data-color="red"
+        style="background: #e74c3c; color: white"
+      >
+        red
+      </li>
+
+      <li
+        class="color-chip"
+        data-color="blue"
+        style="background: #3498db; color: white"
+      >
+        blue
+      </li>
+
+      <li
+        class="color-chip"
+        data-color="green"
+        style="background: #2ecc71; color: white"
+      >
+        green
+      </li>
+
+      <li
+        class="color-chip"
+        data-color="yellow"
+        style="background: #f1c40f; color: white"
+      >
+        yellow
+      </li>
+    </ul>
+
+    <p id="selected-color">선택된 색상 : 없음</p>
+
+    <script>
+      const colorlist = document.querySelector("#color-list");
+      const selectedText = document.querySelector("#selected-color");
+
+      //부모한테 click을 걸어났더니 colorlist안에 있는 4개의 list가 다 먹음
+      colorlist.addEventListener("click", (event) => {
+        if (!event.target.matches(".color-chip")) return;
+        colorlist.querySelectorAll(".color-chip").forEach((chip) => {
+          chip.classList.remove("select");
+        });
+
+        //현재 클릭한 것 (event.target)을 하려고 위에 parameter 안에 (event)를 넣어놓은거임
+        event.target.classList.add("selected");
+        const color = event.target.dataset.color;
+        selectedText.textContent = `선택된 색상: ${color}`;
+      });
+    </script>
+  </body>
+</html>
