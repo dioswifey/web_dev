@@ -206,30 +206,53 @@
       const addTodo = () => {
         //a. todoInput.value.trim()으로 텍스트를 읽습니다
         const text = todoInput.value.trim();
+
         // b. 텍스트가 비어있으면 함수를 종료합니다 (return)
         if (!text) return;
+
         // c. #empty-msg (할일을 추가하라는 메시지)를 첫번째 할일을 추가하면 사라지게
         const emptyMsg = document.querySelector("empty-msg");
         if (emptyMsg) emptyMsg.remove();
+
         // d. <li class="todo-item"> 요소를 createElement로 생성합니다
         //여기서 진짜 할일 list를 생성 -> 거기에다가 "todo-item" 클래스를 추가
         const li = document.createElement("li");
         li.classList.add("todo-item");
+
         // e. <span class="todo-text">에 textContent로 텍스트를 설정합니다
-        const span = doccument.createElement("span");
+        const span = document.createElement("span");
         span.classList.add("todo-text");
         span.textContent = "text";
+
         // f. <button class="complete-btn"> "완료"를 생성합니다
         //    - 클릭 시 li에 'done' 클래스를 토글하고 updateCounter()를 호출합니다
         //    - 완료 상태면 버튼 텍스트를 "취소", 아니면 "완료"로 변경합니다
-        const btn = document.createElement("");
-        btn.classList.add("complete-btn");
+  
         //버튼 하나를 새로 만든다 <- 각 할일옆에 붙을 완료 버튼
+        const btn = document.createElement("button");
         //그 버튼에 complete-btn이라는 class를 붙힌다.
+        btn.classList.add("complete-btn");
         //버튼 안의 글자가 "완료"
+        btn.textContent = "완료";
         //이버튼에 클릭 이벤트를 붙인다
+        //li에 버튼도 붙힌다.
         //클릭되면 버튼이 속한 li에 done 클래스를 붙였다 뗐다 한다.
+        // 클릭 시 li에 'done' 클래스를 토글하고 updateCounter()를 호출합니다
+        btn.addEventListener("click", () => {
+          li.classList.toggle('done');
 
+          if (li.classList.contains("done")) {
+            btn.textContent = "취소";
+          } else {
+            btn.textContent = "완료";
+          }
+
+          updateCounter();
+
+
+          
+
+        });
 
 
 
