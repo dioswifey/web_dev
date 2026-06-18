@@ -81,6 +81,8 @@
                 statusEl.className = 'hidden';
         }
 
+        const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
         function createUserCard(user) {
             //user 한명의 연락처 정보
             //card box: div
@@ -96,7 +98,7 @@
 
             //company
             const company = document.createElement('p');
-            company.textContent = user.company;
+            company.textContent = user.company.name;
 
             card.append(name, email, company);
             return card;
@@ -112,6 +114,8 @@
                     //message: `서버 에러 (${response.status})`
                     throw new Error(`서버 에러 (${response.status})`); 
                 }
+
+                await delay(4500);
                 //여기가 실행된다는 뜻은 데이터가 정상적으로 왓다
                 const users = await response.json(); //파싱
                 const fragment = document.createDocumentFragment();
@@ -125,6 +129,7 @@
             }
         } 
         loadUsers();
+        
     </script>
 </body>
 </html>
