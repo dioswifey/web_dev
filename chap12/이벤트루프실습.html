@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 루프 실습</title>
+</head>
+<body>
+    <script>
+        console.log('1 : 동기 코드 시작: ');
+        //setTimeout(function, time)
+        setTimeout(() => {
+            console.log('3: setTimeout 콜백 함수(2초 뒤)');
+        }, 2000);
+
+        setTimeout(() => {
+            console.log('2: setTimeout 콜백함수(0초 뒤)');
+        }, 0);
+        console.log('1. 동기코드 끝');
+    </script>
+</body>
+</html>
